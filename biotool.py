@@ -15,6 +15,11 @@ parser.add_argument('--sum', dest='accumulate', action='store_const',
                    const='sum', default='max',
                    help='sum the integers (default: find the max)')
 
+# 3. Have a "-v" or "--version" switch
+# I chose --version, not -v because some programs like grep use -v to mean inverse
+parser.add_argument('--version', action='version', version='%(prog)s 0.1.0')
+
+
 args = parser.parse_args()
 
 if args.accumulate == 'sum':
@@ -24,7 +29,6 @@ elif args.accumulate == 'max':
 
 """
 Still to-do:
-3. Have a "-v" or "--version" switch
 4. Do not use stdout for messages and errors
 5. Always raise an error if something goes wrong
 7. Don't hard-code any paths
